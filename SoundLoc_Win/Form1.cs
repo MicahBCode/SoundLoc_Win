@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO.Ports;
 
 namespace SoundLoc_Win
 {
@@ -15,6 +16,15 @@ namespace SoundLoc_Win
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            cB_COMPort.Items.Clear();
+            foreach (string comport in SerialPort.GetPortNames())
+            {
+                cB_COMPort.Items.Add(comport);
+            }
         }
     }
 }
