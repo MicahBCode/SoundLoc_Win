@@ -30,14 +30,15 @@
         {
             this.button1 = new System.Windows.Forms.Button();
             this.cB_COMPort = new System.Windows.Forms.ComboBox();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(11, 11);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Location = new System.Drawing.Point(22, 21);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(91, 29);
+            this.button1.Size = new System.Drawing.Size(182, 56);
             this.button1.TabIndex = 0;
             this.button1.Text = "Verbinden";
             this.button1.UseVisualStyleBackColor = true;
@@ -45,19 +46,29 @@
             // cB_COMPort
             // 
             this.cB_COMPort.FormattingEnabled = true;
-            this.cB_COMPort.Location = new System.Drawing.Point(107, 16);
+            this.cB_COMPort.Location = new System.Drawing.Point(214, 31);
+            this.cB_COMPort.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.cB_COMPort.Name = "cB_COMPort";
-            this.cB_COMPort.Size = new System.Drawing.Size(92, 21);
+            this.cB_COMPort.Size = new System.Drawing.Size(180, 33);
             this.cB_COMPort.TabIndex = 1;
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(22, 85);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(1216, 641);
+            this.richTextBox1.TabIndex = 2;
+            this.richTextBox1.Text = "";
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(625, 384);
+            this.ClientSize = new System.Drawing.Size(1250, 738);
+            this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.cB_COMPort);
             this.Controls.Add(this.button1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -69,6 +80,7 @@
 
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ComboBox cB_COMPort;
+        private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }
 

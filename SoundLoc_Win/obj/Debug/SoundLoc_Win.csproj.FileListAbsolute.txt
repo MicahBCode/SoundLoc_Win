@@ -8,3 +8,7 @@ C:\Users\misch\OneDrive\Dokumente\PHY\IDPA\SoundLoc_Win\SoundLoc_Win\obj\Debug\S
 C:\Users\misch\OneDrive\Dokumente\PHY\IDPA\SoundLoc_Win\SoundLoc_Win\obj\Debug\SoundLoc_Win.csproj.CoreCompileInputs.cache
 C:\Users\misch\OneDrive\Dokumente\PHY\IDPA\SoundLoc_Win\SoundLoc_Win\obj\Debug\SoundLoc_Win.exe
 C:\Users\misch\OneDrive\Dokumente\PHY\IDPA\SoundLoc_Win\SoundLoc_Win\obj\Debug\SoundLoc_Win.pdb
+C:\Users\misch\OneDrive\Dokumente\PHY\IDPA\SoundLoc_Win\SoundLoc_Win\bin\Debug\Newtonsoft.Json.dll
+C:\Users\misch\OneDrive\Dokumente\PHY\IDPA\SoundLoc_Win\SoundLoc_Win\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\misch\OneDrive\Dokumente\PHY\IDPA\SoundLoc_Win\SoundLoc_Win\bin\Debug\Newtonsoft.Json.xml
+C:\Users\misch\OneDrive\Dokumente\PHY\IDPA\SoundLoc_Win\SoundLoc_Win\obj\Debug\SoundLoc_Win.csproj.CopyComplete
