@@ -28,16 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.cB_COMPort = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.sS_Status = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.bW_ReadData = new System.ComponentModel.BackgroundWorker();
+            this.sP_SerialCOM = new System.IO.Ports.SerialPort(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.statusStrip1.SuspendLayout();
+            this.sS_Status.SuspendLayout();
             this.SuspendLayout();
             // 
             // richTextBox1
@@ -92,33 +95,33 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Controls.Add(this.statusStrip1);
+            this.panel2.Controls.Add(this.sS_Status);
             this.panel2.Controls.Add(this.richTextBox1);
             this.panel2.Location = new System.Drawing.Point(-13, 99);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1277, 654);
             this.panel2.TabIndex = 4;
             // 
-            // statusStrip1
+            // sS_Status
             // 
-            this.statusStrip1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.sS_Status.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.statusStrip1.AutoSize = false;
-            this.statusStrip1.Dock = System.Windows.Forms.DockStyle.None;
-            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.sS_Status.AutoSize = false;
+            this.sS_Status.Dock = System.Windows.Forms.DockStyle.None;
+            this.sS_Status.ImageScalingSize = new System.Drawing.Size(32, 32);
+            this.sS_Status.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(12, 594);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.statusStrip1.Size = new System.Drawing.Size(1253, 47);
-            this.statusStrip1.TabIndex = 3;
-            this.statusStrip1.Text = "statusStrip1";
+            this.sS_Status.Location = new System.Drawing.Point(12, 594);
+            this.sS_Status.Name = "sS_Status";
+            this.sS_Status.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.sS_Status.Size = new System.Drawing.Size(1253, 47);
+            this.sS_Status.TabIndex = 3;
+            this.sS_Status.Text = "statusStrip1";
             // 
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(238, 12);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(238, 37);
             this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
             // 
             // Form1
@@ -135,8 +138,8 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
+            this.sS_Status.ResumeLayout(false);
+            this.sS_Status.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -147,8 +150,10 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.StatusStrip sS_Status;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.ComponentModel.BackgroundWorker bW_ReadData;
+        private System.IO.Ports.SerialPort sP_SerialCOM;
     }
 }
 
