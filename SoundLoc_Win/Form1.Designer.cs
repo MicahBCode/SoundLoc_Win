@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.cB_COMPort = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.b_Connect = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.sS_Status = new System.Windows.Forms.StatusStrip();
@@ -62,20 +62,21 @@
             this.cB_COMPort.Size = new System.Drawing.Size(180, 33);
             this.cB_COMPort.TabIndex = 1;
             // 
-            // button1
+            // b_Connect
             // 
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button1.Location = new System.Drawing.Point(40, 72);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(201, 56);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Verbinden";
-            this.button1.UseVisualStyleBackColor = false;
+            this.b_Connect.BackColor = System.Drawing.Color.White;
+            this.b_Connect.FlatAppearance.BorderSize = 0;
+            this.b_Connect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.b_Connect.Font = new System.Drawing.Font("Century Gothic", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.b_Connect.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.b_Connect.Location = new System.Drawing.Point(40, 72);
+            this.b_Connect.Margin = new System.Windows.Forms.Padding(4);
+            this.b_Connect.Name = "b_Connect";
+            this.b_Connect.Size = new System.Drawing.Size(201, 56);
+            this.b_Connect.TabIndex = 0;
+            this.b_Connect.Text = "Verbinden";
+            this.b_Connect.UseVisualStyleBackColor = false;
+            this.b_Connect.Click += new System.EventHandler(this.b_Connect_Click);
             // 
             // panel1
             // 
@@ -83,7 +84,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
             this.panel1.Controls.Add(this.cB_COMPort);
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.b_Connect);
             this.panel1.Location = new System.Drawing.Point(-13, -53);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1277, 155);
@@ -147,7 +148,7 @@
         #endregion
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.ComboBox cB_COMPort;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button b_Connect;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.StatusStrip sS_Status;

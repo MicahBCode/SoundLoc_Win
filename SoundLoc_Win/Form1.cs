@@ -112,5 +112,17 @@ namespace SoundLoc_Win
             DateTime currentTime = DateTime.Now;
             toolStripStatusLabel1.Text = "Letzte Position von: " + currentTime;
         }
+
+        private void b_Connect_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                sP_SerialCOM.PortName = cB_COMPort.Text;
+                sP_SerialCOM.Open();
+            } catch(Exception err)
+            {
+                MessageBox.Show(err.Message);
+            }
+        }
     }
 }
