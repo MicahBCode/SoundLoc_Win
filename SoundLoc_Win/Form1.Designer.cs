@@ -139,8 +139,25 @@
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(118, 19);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(238, 37);
             this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
+            // 
+            // bW_ReadData
+            // 
+            this.bW_ReadData.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bW_ReadData_DoWork);
+            // 
+            // sP_SerialCOM
+            // 
+            this.sP_SerialCOM.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.sP_SerialCOM_DataReceived);
+            // pictureBox1
+            // 
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox1.Location = new System.Drawing.Point(631, 16);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(620, 565);
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
             // 
             // Form1
             // 
