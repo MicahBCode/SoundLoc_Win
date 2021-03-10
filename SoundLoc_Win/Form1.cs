@@ -30,7 +30,7 @@ namespace SoundLoc_Win
 
         bool getData = false;
         bool newData = false;
-        string data = "";
+        string data = "1:47us;2:378us;3:0s;";
 
         public Form1()
         {
@@ -54,17 +54,17 @@ namespace SoundLoc_Win
                 cB_COMPort.Items.Add(comport);
             }
 
-            Microphone_1.d_time = 0; // time in ms
-            Microphone_2.d_time = 0.5;
-            Microphone_3.d_time = 1.0;
+            //Microphone_1.d_time = 0; // time in ms
+            //Microphone_2.d_time = 0.5;
+            //Microphone_3.d_time = 1.0;
 
-            richTextBox1.AppendText("Input Time microphone 1: " + Microphone_1.d_time.ToString() + "ms\r\n");
-            richTextBox1.AppendText("Input Time microphone 2: " + Microphone_2.d_time.ToString() + "ms\r\n");
-            richTextBox1.AppendText("Input Time microphone 3: " + Microphone_3.d_time.ToString() + "ms\r\n");
+            //richTextBox1.AppendText("Input Time microphone 1: " + Microphone_1.d_time.ToString() + "ms\r\n");
+            //richTextBox1.AppendText("Input Time microphone 2: " + Microphone_2.d_time.ToString() + "ms\r\n");
+            //richTextBox1.AppendText("Input Time microphone 3: " + Microphone_3.d_time.ToString() + "ms\r\n");
 
-            richTextBox1.AppendText("\n");
+            //richTextBox1.AppendText("\n");
 
-            calculateSoundCoords(Microphone_1, Microphone_2, Microphone_3);
+            //calculateSoundCoords(Microphone_1, Microphone_2, Microphone_3);
         }
 
         private void calculateSoundCoords(s_Microphone mic_1, s_Microphone mic_2, s_Microphone mic_3)
@@ -108,10 +108,12 @@ namespace SoundLoc_Win
                 x = (r1_3 * r2 * x2 - r1_2 * r2_2 * x1 - r1_2 * r2_2 * x2 + r1_2 * x1 * y2_2 + r1_2 * x2_3 + r1_2 * x2 * y2_2 + r1 * r2_3 * x1 - r1 * r2 * x1_2 * x2 - r1 * r2 * x1 * x2_2 - r1 * r2 * x1 * y2_2 + r2_2 * x1_3 - x1_3 * y2_2 - r1 * y2 * Math.Sqrt(-1 * r1_4 * r2_2 + r1_4 * x2_2 + r1_4 * y2_2 + 2 * r1_3 * r2_3 - 2 * r1_3 * r2 * x2_2 - 2 * r1_3 * r2 * y2_2 - r1_2 * r2_4 + 2 * r1_2 * r2_2 * x1_2 - 2 * r1_2 * r2_2 * x1 * x2 + 2 * r1_2 * r2_2 * x2_2 + 2 * r1_2 * r2_2 * y2_2 - 2 * r1_2 * x1_2 * x2_2 - 2 * r1_2 * x1_2 * y2_2 + 2 * r1_2 * x1 * x2_3 + 2 * r1_2 * x1 * x2 * y2_2 - r1_2 * x2_4 - 2 * r1_2 * x2_2 * y2_2 - r1_2 * y2_4 - 2 * r1 * r2_3 * x1_2 + 2 * r1 * r2 * x1_2 * x2_2 + 2 * r1 * r2 * x1_2 * y2_2 + r2_4 * x1_2 - r2_2 * x1_4 + 2 * r2_2 * x1_3 * x2 - 2 * r2_2 * x1_2 * x2_2 - 2 * r2_2 * x1_2 * y2_2 + x1_4 * x2_2 + x1_4 * y2_2 - 2 * x1_3 * x2_3 - 2 * x1_3 * x2 * y2_2 + x1_2 * x2_4 + 2 * x1_2 * x2_2 * y2_2 + x1_2 * y2_4)) / (2 * r1_2 * x2_2 + 2 * r1_2 * y2_2 - 4 * r1 * r2 * x1 * x2 + 2 * r2_2 * x1_2 - 2 * x1_2 * y2_2);
                 y = (r1_3 * r2 * y2 - r1_2 * r2_2 * y2 - r1_2 * x1 * x2 * y2 + r1_2 * x2_2 * y2 + r1_2 * y2_3 - r1 * r2 * x1_2 * y2 + r2_2 * x1_2 * y2 + x1_3 * x2 * y2 - x1_2 * x2_2 * y2 - x1_2 * y2_3 + (r1 * x2 - r2 * x1) * Math.Sqrt(-1 * r1_4 * r2_2 + r1_4 * x2_2 + r1_4 * y2_2 + 2 * r1_3 * r2_3 - 2 * r1_3 * r2 * x2_2 - 2 * r1_3 * r2 * y2_2 - r1_2 * r2_4 + 2 * r1_2 * r2_2 * x1_2 - 2 * r1_2 * r2_2 * x1 * x2 + 2 * r1_2 * r2_2 * x2_2 + 2 * r1_2 * r2_2 * y2_2 - 2 * r1_2 * x1_2 * x2_2 - 2 * r1_2 * x1_2 * y2_2 + 2 * r1_2 * x1 * x2_3 + 2 * r1_2 * x1 * x2 * y2_2 - r1_2 * x2_4 - 2 * r1_2 * x2_2 * y2_2 - r1_2 * y2_4 - 2 * r1 * r2_3 * x1_2 + 2 * r1 * r2 * x1_2 * x2_2 + 2 * r1 * r2 * x1_2 * y2_2 + r2_4 * x1_2 - r2_2 * x1_4 + 2 * r2_2 * x1_3 * x2 - 2 * r2_2 * x1_2 * x2_2 - 2 * r2_2 * x1_2 * y2_2 + x1_4 * x2_2 + x1_4 * y2_2 - 2 * x1_3 * x2_3 - 2 * x1_3 * x2 * y2_2 + x1_2 * x2_4 + 2 * x1_2 * x2_2 * y2_2 + x1_2 * y2_4)) / (2 * r1_2 * x2_2 + 2 * r1_2 * y2_2 - 4 * r1 * r2 * x1 * x2 + 2 * r2_2 * x1_2 - 2 * x1_2 * y2_2);
             }
-            
-            richTextBox1.AppendText("Got r of: " + r.ToString() + "cm\r\n");
-            richTextBox1.AppendText("x: " + x.ToString() + "\r\n");
-            richTextBox1.AppendText("y: " + y.ToString() + "\r\n");
+
+            richTextBox1.Invoke((MethodInvoker)delegate {
+                richTextBox1.AppendText("Got r of: " + r.ToString() + "cm\r\n");
+                richTextBox1.AppendText("x: " + x.ToString() + "\r\n");
+                richTextBox1.AppendText("y: " + y.ToString() + "\r\n");
+            });
 
 
             DateTime currentTime = DateTime.Now;
@@ -138,11 +140,15 @@ namespace SoundLoc_Win
             {
                 if(b_Connect.Text == "Verbinden")
                 {
-                    sP_SerialCOM.PortName = cB_COMPort.Text;
-                    sP_SerialCOM.Open();
+                    //sP_SerialCOM.PortName = cB_COMPort.Text;
+                    //sP_SerialCOM.Open();
+                    b_Connect.Text = "Trennen";
+                    cB_COMPort.Enabled = false;
                     bW_ReadData.RunWorkerAsync();
                 } else
                 {
+                    b_Connect.Text = "Verbinden";
+                    cB_COMPort.Enabled = true;
                     sP_SerialCOM.Close();
                     bW_ReadData.CancelAsync();
                 }
@@ -168,7 +174,6 @@ namespace SoundLoc_Win
                             dataDict.Add(item.Split(':')[0], item.Split(':')[1]);
                         }
                     }
-                    getData = true;
                     for (uint ui_cnt = 1; ui_cnt < 4; ui_cnt++)
                     {
                         var value = 0.0;
@@ -205,7 +210,7 @@ namespace SoundLoc_Win
                                 break;
                         }
                     }
-                    getData = false;
+                    calculateSoundCoords(Microphone_1, Microphone_2, Microphone_3);
                 }
             }
         }

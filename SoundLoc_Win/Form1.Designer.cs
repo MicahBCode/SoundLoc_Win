@@ -143,6 +143,7 @@
             // 
             // bW_ReadData
             // 
+            this.bW_ReadData.WorkerSupportsCancellation = true;
             this.bW_ReadData.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bW_ReadData_DoWork);
             // 
             // sP_SerialCOM
