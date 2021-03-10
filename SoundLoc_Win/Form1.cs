@@ -111,6 +111,20 @@ namespace SoundLoc_Win
 
             DateTime currentTime = DateTime.Now;
             toolStripStatusLabel1.Text = "Letzte Position von: " + currentTime;
+
+            pictureBox1.CreateGraphics();
+        }
+
+        private void pictureBox1_Paint(object sender, PaintEventArgs e)
+        {
+            PictureBox test = sender as PictureBox;
+            Bitmap bitmap = new Bitmap(test.Size.Width, test.Size.Height);
+            Graphics g = Graphics.FromImage(bitmap);
+            g.PageUnit = GraphicsUnit.Pixel;
+            Pen myPen = new Pen(Color.Black, 1);
+            g.TranslateTransform(test.Size.Width / 2, test.Size.Height / 2);
+            g.DrawLine(myPen, 0, 0, 50, 0);
+            e.Graphics.DrawImage(bitmap, 0, 0, test.Size.Width / 2, test.Size.Height / 2);
         }
     }
 }
