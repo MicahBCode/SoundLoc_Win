@@ -26,3 +26,17 @@ C:\Users\Mischa Binder\Desktop\SoundLoc_Win\SoundLoc_Win\obj\Debug\SoundLoc_Win.
 C:\Users\Mischa Binder\Desktop\SoundLoc_Win\SoundLoc_Win\obj\Debug\SoundLoc_Win.csproj.CopyComplete
 C:\Users\Mischa Binder\Desktop\SoundLoc_Win\SoundLoc_Win\obj\Debug\SoundLoc_Win.exe
 C:\Users\Mischa Binder\Desktop\SoundLoc_Win\SoundLoc_Win\obj\Debug\SoundLoc_Win.pdb
+C:\Users\Mischa Binder\OneDrive\Dokumente\Schule\PHY\IDPA\Software\SoundLoc_Win\SoundLoc_Win\bin\Debug\SoundLoc_Win.exe.config
+C:\Users\Mischa Binder\OneDrive\Dokumente\Schule\PHY\IDPA\Software\SoundLoc_Win\SoundLoc_Win\bin\Debug\SoundLoc_Win.exe
+C:\Users\Mischa Binder\OneDrive\Dokumente\Schule\PHY\IDPA\Software\SoundLoc_Win\SoundLoc_Win\bin\Debug\SoundLoc_Win.pdb
+C:\Users\Mischa Binder\OneDrive\Dokumente\Schule\PHY\IDPA\Software\SoundLoc_Win\SoundLoc_Win\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Mischa Binder\OneDrive\Dokumente\Schule\PHY\IDPA\Software\SoundLoc_Win\SoundLoc_Win\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\Mischa Binder\OneDrive\Dokumente\Schule\PHY\IDPA\Software\SoundLoc_Win\SoundLoc_Win\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Mischa Binder\OneDrive\Dokumente\Schule\PHY\IDPA\Software\SoundLoc_Win\SoundLoc_Win\obj\Debug\SoundLoc_Win.csprojAssemblyReference.cache
+C:\Users\Mischa Binder\OneDrive\Dokumente\Schule\PHY\IDPA\Software\SoundLoc_Win\SoundLoc_Win\obj\Debug\SoundLoc_Win.Form1.resources
+C:\Users\Mischa Binder\OneDrive\Dokumente\Schule\PHY\IDPA\Software\SoundLoc_Win\SoundLoc_Win\obj\Debug\SoundLoc_Win.Properties.Resources.resources
+C:\Users\Mischa Binder\OneDrive\Dokumente\Schule\PHY\IDPA\Software\SoundLoc_Win\SoundLoc_Win\obj\Debug\SoundLoc_Win.csproj.GenerateResource.cache
+C:\Users\Mischa Binder\OneDrive\Dokumente\Schule\PHY\IDPA\Software\SoundLoc_Win\SoundLoc_Win\obj\Debug\SoundLoc_Win.csproj.CoreCompileInputs.cache
+C:\Users\Mischa Binder\OneDrive\Dokumente\Schule\PHY\IDPA\Software\SoundLoc_Win\SoundLoc_Win\obj\Debug\SoundLoc_Win.csproj.CopyComplete
+C:\Users\Mischa Binder\OneDrive\Dokumente\Schule\PHY\IDPA\Software\SoundLoc_Win\SoundLoc_Win\obj\Debug\SoundLoc_Win.exe
+C:\Users\Mischa Binder\OneDrive\Dokumente\Schule\PHY\IDPA\Software\SoundLoc_Win\SoundLoc_Win\obj\Debug\SoundLoc_Win.pdb

@@ -124,5 +124,15 @@ namespace SoundLoc_Win
                 MessageBox.Show(err.Message);
             }
         }
+
+        private void bW_ReadData_DoWork(object sender, DoWorkEventArgs e)
+        {
+
+        }
+
+        private void sP_SerialCOM_DataReceived(object sender, SerialDataReceivedEventArgs e)
+        {
+            string data = sP_SerialCOM.ReadExisting();
+        }
     }
 }
