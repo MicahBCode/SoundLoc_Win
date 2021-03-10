@@ -126,5 +126,27 @@ namespace SoundLoc_Win
             g.DrawLine(myPen, 0, 0, 50, 0);
             e.Graphics.DrawImage(bitmap, 0, 0, test.Size.Width / 2, test.Size.Height / 2);
         }
+
+        private void b_Connect_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                sP_SerialCOM.PortName = cB_COMPort.Text;
+                sP_SerialCOM.Open();
+            } catch(Exception err)
+            {
+                MessageBox.Show(err.Message);
+            }
+        }
+
+        private void bW_ReadData_DoWork(object sender, DoWorkEventArgs e)
+        {
+
+        }
+
+        private void sP_SerialCOM_DataReceived(object sender, SerialDataReceivedEventArgs e)
+        {
+            string data = sP_SerialCOM.ReadExisting();
+        }
     }
 }
