@@ -38,9 +38,11 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.bW_ReadData = new System.ComponentModel.BackgroundWorker();
             this.sP_SerialCOM = new System.IO.Ports.SerialPort(this.components);
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.sS_Status.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // richTextBox1
@@ -97,6 +99,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.sS_Status);
             this.panel2.Controls.Add(this.richTextBox1);
             this.panel2.Location = new System.Drawing.Point(-6, 51);
@@ -125,8 +128,18 @@
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(118, 19);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(238, 37);
             this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox1.Location = new System.Drawing.Point(631, 16);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(620, 565);
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
             // 
             // bW_ReadData
             // 
@@ -135,7 +148,7 @@
             // sP_SerialCOM
             // 
             this.sP_SerialCOM.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.sP_SerialCOM_DataReceived);
-            // 
+            //
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -152,6 +165,7 @@
             this.panel2.ResumeLayout(false);
             this.sS_Status.ResumeLayout(false);
             this.sS_Status.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -166,6 +180,7 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.ComponentModel.BackgroundWorker bW_ReadData;
         private System.IO.Ports.SerialPort sP_SerialCOM;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
