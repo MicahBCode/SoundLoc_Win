@@ -50,7 +50,7 @@
             this.richTextBox1.BackColor = System.Drawing.Color.White;
             this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richTextBox1.Location = new System.Drawing.Point(18, 8);
-            this.richTextBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.richTextBox1.Margin = new System.Windows.Forms.Padding(2);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(295, 294);
             this.richTextBox1.TabIndex = 2;
@@ -72,7 +72,7 @@
             this.b_Connect.Font = new System.Drawing.Font("Century Gothic", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.b_Connect.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.b_Connect.Location = new System.Drawing.Point(16, 38);
-            this.b_Connect.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.b_Connect.Margin = new System.Windows.Forms.Padding(1);
             this.b_Connect.Name = "b_Connect";
             this.b_Connect.Size = new System.Drawing.Size(110, 32);
             this.b_Connect.TabIndex = 0;
@@ -88,7 +88,7 @@
             this.panel1.Controls.Add(this.cB_COMPort);
             this.panel1.Controls.Add(this.b_Connect);
             this.panel1.Location = new System.Drawing.Point(-6, -28);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(638, 81);
             this.panel1.TabIndex = 3;
@@ -103,7 +103,7 @@
             this.panel2.Controls.Add(this.sS_Status);
             this.panel2.Controls.Add(this.richTextBox1);
             this.panel2.Location = new System.Drawing.Point(-6, 51);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(638, 340);
             this.panel2.TabIndex = 4;
@@ -111,10 +111,9 @@
             // pictureBox1
             // 
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Location = new System.Drawing.Point(316, 8);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Location = new System.Drawing.Point(318, 8);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(311, 295);
+            this.pictureBox1.Size = new System.Drawing.Size(301, 298);
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
@@ -139,7 +138,7 @@
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(238, 37);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(118, 19);
             this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
             // 
             // bW_ReadData
@@ -149,15 +148,6 @@
             // sP_SerialCOM
             // 
             this.sP_SerialCOM.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.sP_SerialCOM_DataReceived);
-            // pictureBox1
-            // 
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Location = new System.Drawing.Point(631, 16);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(620, 565);
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
             // 
             // Form1
             // 
@@ -167,7 +157,7 @@
             this.ClientSize = new System.Drawing.Size(625, 384);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);

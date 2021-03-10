@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.IO.Ports;
 using System.Globalization;
 using System.Security.Cryptography;
+using System.Text.RegularExpressions;
 
 namespace SoundLoc_Win
 {
@@ -26,6 +27,10 @@ namespace SoundLoc_Win
         s_Microphone Microphone_1;
         s_Microphone Microphone_2;
         s_Microphone Microphone_3;
+
+        bool getData = false;
+        bool newData = false;
+        string data = "";
 
         public Form1()
         {
@@ -131,8 +136,16 @@ namespace SoundLoc_Win
         {
             try
             {
-                sP_SerialCOM.PortName = cB_COMPort.Text;
-                sP_SerialCOM.Open();
+                if(b_Connect.Text == "Verbinden")
+                {
+                    sP_SerialCOM.PortName = cB_COMPort.Text;
+                    sP_SerialCOM.Open();
+                    bW_ReadData.RunWorkerAsync();
+                } else
+                {
+                    sP_SerialCOM.Close();
+                    bW_ReadData.CancelAsync();
+                }
             } catch(Exception err)
             {
                 MessageBox.Show(err.Message);
@@ -141,12 +154,69 @@ namespace SoundLoc_Win
 
         private void bW_ReadData_DoWork(object sender, DoWorkEventArgs e)
         {
-
+            while(true && bW_ReadData.CancellationPending == false)
+            {
+                if(newData == true)
+                {
+                    Dictionary<string, string> dataDict = new Dictionary<string, string>();
+                    string[] informations = data.Split(';');
+                    newData = false;
+                    foreach (string item in informations)
+                    {
+                        if (item != "")
+                        {
+                            dataDict.Add(item.Split(':')[0], item.Split(':')[1]);
+                        }
+                    }
+                    getData = true;
+                    for (uint ui_cnt = 1; ui_cnt < 4; ui_cnt++)
+                    {
+                        var value = 0.0;
+                        var numAlpha = new Regex("(?<Numeric>[0-9]*)(?<Alpha>[a-zA-Z]*)");
+                        var match = numAlpha.Match(dataDict[Convert.ToString(ui_cnt)]);
+                        var unit = match.Groups["Alpha"].Value;
+                        switch (unit)
+                        {
+                            case "ns":
+                                value = Convert.ToDouble(match.Groups["Numeric"].Value) / 1000000;
+                                break;
+                            case "us":
+                                value = Convert.ToDouble(match.Groups["Numeric"].Value) / 1000;
+                                break;
+                            case "s":
+                                value = Convert.ToDouble(match.Groups["Numeric"].Value) * 1000;
+                                break;
+                            default:
+                                value = Convert.ToDouble(match.Groups["Numeric"].Value);
+                                break;
+                        }
+                        switch (ui_cnt)
+                        {
+                            case 1:
+                                Microphone_1.d_time = value;
+                                break;
+                            case 2:
+                                Microphone_2.d_time = value;
+                                break;
+                            case 3:
+                                Microphone_3.d_time = value;
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                    getData = false;
+                }
+            }
         }
 
         private void sP_SerialCOM_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
-            string data = sP_SerialCOM.ReadExisting();
+            if(newData == false)
+            {
+                data = sP_SerialCOM.ReadExisting();
+                newData = true;
+            }           
         }
     }
 }
