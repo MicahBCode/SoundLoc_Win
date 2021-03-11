@@ -11,6 +11,7 @@ using System.IO.Ports;
 using System.Globalization;
 using System.Security.Cryptography;
 using System.Text.RegularExpressions;
+using System.Management;
 
 namespace SoundLoc_Win
 {
@@ -54,17 +55,16 @@ namespace SoundLoc_Win
                 cB_COMPort.Items.Add(comport);
             }
 
-            //Microphone_1.d_time = 0; // time in ms
-            //Microphone_2.d_time = 0.5;
-            //Microphone_3.d_time = 1.0;
-
-            //richTextBox1.AppendText("Input Time microphone 1: " + Microphone_1.d_time.ToString() + "ms\r\n");
-            //richTextBox1.AppendText("Input Time microphone 2: " + Microphone_2.d_time.ToString() + "ms\r\n");
-            //richTextBox1.AppendText("Input Time microphone 3: " + Microphone_3.d_time.ToString() + "ms\r\n");
-
-            //richTextBox1.AppendText("\n");
-
-            //calculateSoundCoords(Microphone_1, Microphone_2, Microphone_3);
+            ManagementObjectCollection ManObjReturn;
+            ManagementObjectSearcher ManObjSearch;
+            ManObjSearch = new ManagementObjectSearcher("SELECT * FROM Win32_SerialPort WHERE PNPDeviceID=\"USB\\\\VID_0FC8&PID_0001\\\\208335C0414E\""); //  WHERE DeviceID=\"4040\"
+            ManObjReturn = ManObjSearch.Get();
+            foreach (ManagementObject ManObj in ManObjReturn)
+            {
+                string description = ManObj["DeviceID"].ToString();
+                cB_COMPort.Text = description;
+                b_Connect_Click(null, new EventArgs());
+            }
         }
 
         private void calculateSoundCoords(s_Microphone mic_1, s_Microphone mic_2, s_Microphone mic_3)
@@ -110,9 +110,10 @@ namespace SoundLoc_Win
             }
 
             richTextBox1.Invoke((MethodInvoker)delegate {
-                richTextBox1.AppendText("Got r of: " + r.ToString() + "cm\r\n");
-                richTextBox1.AppendText("x: " + x.ToString() + "\r\n");
-                richTextBox1.AppendText("y: " + y.ToString() + "\r\n");
+                richTextBox1.AppendText("r: " + r.ToString() + "cm\r\n");
+                richTextBox1.AppendText("x: " + x.ToString() + "cm\r\n");
+                richTextBox1.AppendText("y: " + y.ToString() + "cm\r\n");
+                richTextBox1.ScrollToCaret();
             });
 
 
@@ -140,8 +141,8 @@ namespace SoundLoc_Win
             {
                 if(b_Connect.Text == "Verbinden")
                 {
-                    //sP_SerialCOM.PortName = cB_COMPort.Text;
-                    //sP_SerialCOM.Open();
+                    sP_SerialCOM.PortName = cB_COMPort.Text;
+                    sP_SerialCOM.Open();
                     b_Connect.Text = "Trennen";
                     cB_COMPort.Enabled = false;
                     bW_ReadData.RunWorkerAsync();
@@ -165,6 +166,7 @@ namespace SoundLoc_Win
                 if(newData == true)
                 {
                     Dictionary<string, string> dataDict = new Dictionary<string, string>();
+                    dataDict.Clear();
                     string[] informations = data.Split(';');
                     newData = false;
                     foreach (string item in informations)
@@ -219,7 +221,7 @@ namespace SoundLoc_Win
         {
             if(newData == false)
             {
-                data = sP_SerialCOM.ReadExisting();
+                data = sP_SerialCOM.ReadLine();
                 newData = true;
             }           
         }
