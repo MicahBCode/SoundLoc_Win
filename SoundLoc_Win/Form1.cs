@@ -130,9 +130,12 @@ namespace SoundLoc_Win
             Graphics g = Graphics.FromImage(bitmap);
             g.PageUnit = GraphicsUnit.Pixel;
             Pen myPen = new Pen(Color.Black, 1);
-            g.TranslateTransform(test.Size.Width / 2, test.Size.Height / 2);
-            g.DrawLine(myPen, 0, 0, 50, 0);
-            e.Graphics.DrawImage(bitmap, 0, 0, test.Size.Width / 2, test.Size.Height / 2);
+            g.TranslateTransform(100,100);
+            g.DrawLine(myPen, 0, 0, 100, 0);
+            g.DrawLine(myPen, 100, 0, 100, 100);
+            g.DrawLine(myPen, 100, 100, 0, 100);
+            g.DrawLine(myPen, 0, 100, 0, 0);
+            e.Graphics.DrawImage(bitmap, 0, 0, test.Size.Width, test.Size.Height);
         }
 
         private void b_Connect_Click(object sender, EventArgs e)
