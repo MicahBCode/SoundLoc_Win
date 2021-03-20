@@ -284,36 +284,26 @@ namespace SoundLoc_Win
             }           
         }
 
-        private void micCoordsChanged(object sender, EventArgs e)
-        {
-            TextBox tB_Changed = sender as TextBox;
-            if(tB_Changed.Text != "")
-            {
-                Microphone_2.d_xCoords = Convert.ToDouble(tB_mic2_x.Text);
-                Microphone_3.d_xCoords = Convert.ToDouble(tB_mic3_x.Text);
-                Microphone_3.d_yCoords = Convert.ToDouble(tB_mic3_y.Text);
-                pictureBox1.Refresh();
-            }
-        }
-
         private void micCoordsFocusLeft(object sender, EventArgs e)
         {
-            TextBox tB_Left = sender as TextBox;
-            if(tB_Left.Text == "")
+            TextBox tB_Changed = sender as TextBox;
+            if (tB_Changed.Text != "")
             {
-                switch(tB_Left.Name)
+                try
                 {
-                    case "tB_mic2_x":
-                        tB_Left.Text = Microphone_2.d_xCoords.ToString();
-                        break;
-                    case "tB_mic3_x":
-                        tB_Left.Text = Microphone_3.d_xCoords.ToString();
-                        break;
-                    case "tB_mic3_y":
-                        tB_Left.Text = Microphone_3.d_yCoords.ToString();
-                        break;
-                    default:
-                        break;
+                    double d_2_xCoords = Convert.ToDouble(tB_mic2_x.Text);
+                    double d_3_xCoords = Convert.ToDouble(tB_mic3_x.Text);
+                    double d_3_yCoords = Convert.ToDouble(tB_mic3_y.Text);
+                    Microphone_2.d_xCoords = d_2_xCoords;
+                    Microphone_3.d_xCoords = d_3_xCoords;
+                    Microphone_3.d_yCoords = d_3_yCoords;
+                    pictureBox1.Refresh();
+                }
+                catch
+                {
+                    tB_mic2_x.Text = Microphone_2.d_xCoords.ToString();
+                    tB_mic3_x.Text = Microphone_3.d_xCoords.ToString();
+                    tB_mic3_y.Text = Microphone_3.d_yCoords.ToString();
                 }
             }
         }

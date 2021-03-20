@@ -192,7 +192,6 @@
             this.tB_mic2_x.TabIndex = 1;
             this.tB_mic2_x.Text = "100";
             this.tB_mic2_x.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.tB_mic2_x.TextChanged += new System.EventHandler(this.micCoordsChanged);
             this.tB_mic2_x.Leave += new System.EventHandler(this.micCoordsFocusLeft);
             // 
             // groupBox2
@@ -217,7 +216,6 @@
             this.tB_mic3_x.TabIndex = 1;
             this.tB_mic3_x.Text = "0";
             this.tB_mic3_x.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.tB_mic3_x.TextChanged += new System.EventHandler(this.micCoordsChanged);
             this.tB_mic3_x.Leave += new System.EventHandler(this.micCoordsFocusLeft);
             // 
             // label2
@@ -246,7 +244,6 @@
             this.tB_mic3_y.TabIndex = 3;
             this.tB_mic3_y.Text = "100";
             this.tB_mic3_y.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.tB_mic3_y.TextChanged += new System.EventHandler(this.micCoordsChanged);
             this.tB_mic3_y.Leave += new System.EventHandler(this.micCoordsFocusLeft);
             // 
             // label4
