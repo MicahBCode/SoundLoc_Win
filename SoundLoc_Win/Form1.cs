@@ -50,11 +50,11 @@ namespace SoundLoc_Win
             Microphone_1.d_xCoords = 0;
             Microphone_1.d_yCoords = 0;
 
-            Microphone_2.d_xCoords = 70;
+            Microphone_2.d_xCoords = Convert.ToDouble(tB_mic2_x.Text);
             Microphone_2.d_yCoords = 0;
 
-            Microphone_3.d_xCoords = 0;
-            Microphone_3.d_yCoords = 70;
+            Microphone_3.d_xCoords = Convert.ToDouble(tB_mic3_x.Text);
+            Microphone_3.d_yCoords = Convert.ToDouble(tB_mic3_y.Text);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -282,6 +282,40 @@ namespace SoundLoc_Win
                     richTextBox1.ScrollToCaret();
                 });
             }           
+        }
+
+        private void micCoordsChanged(object sender, EventArgs e)
+        {
+            TextBox tB_Changed = sender as TextBox;
+            if(tB_Changed.Text != "")
+            {
+                Microphone_2.d_xCoords = Convert.ToDouble(tB_mic2_x.Text);
+                Microphone_3.d_xCoords = Convert.ToDouble(tB_mic3_x.Text);
+                Microphone_3.d_yCoords = Convert.ToDouble(tB_mic3_y.Text);
+                pictureBox1.Refresh();
+            }
+        }
+
+        private void micCoordsFocusLeft(object sender, EventArgs e)
+        {
+            TextBox tB_Left = sender as TextBox;
+            if(tB_Left.Text == "")
+            {
+                switch(tB_Left.Name)
+                {
+                    case "tB_mic2_x":
+                        tB_Left.Text = Microphone_2.d_xCoords.ToString();
+                        break;
+                    case "tB_mic3_x":
+                        tB_Left.Text = Microphone_3.d_xCoords.ToString();
+                        break;
+                    case "tB_mic3_y":
+                        tB_Left.Text = Microphone_3.d_yCoords.ToString();
+                        break;
+                    default:
+                        break;
+                }
+            }
         }
     }
 }
