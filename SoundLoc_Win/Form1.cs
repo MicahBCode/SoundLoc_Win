@@ -50,11 +50,11 @@ namespace SoundLoc_Win
             Microphone_1.d_xCoords = 0;
             Microphone_1.d_yCoords = 0;
 
-            Microphone_2.d_xCoords = 100;
+            Microphone_2.d_xCoords = 70;
             Microphone_2.d_yCoords = 0;
 
             Microphone_3.d_xCoords = 0;
-            Microphone_3.d_yCoords = 100;
+            Microphone_3.d_yCoords = 70;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -192,8 +192,8 @@ namespace SoundLoc_Win
             {
                 if(b_Connect.Text == "Verbinden")
                 {
-                    //sP_SerialCOM.PortName = cB_COMPort.Text;
-                    //sP_SerialCOM.Open();
+                    sP_SerialCOM.PortName = cB_COMPort.Text;
+                    sP_SerialCOM.Open();
                     b_Connect.Text = "Trennen";
                     cB_COMPort.Enabled = false;
                     bW_ReadData.RunWorkerAsync();
@@ -201,7 +201,7 @@ namespace SoundLoc_Win
                 {
                     b_Connect.Text = "Verbinden";
                     cB_COMPort.Enabled = true;
-                    //sP_SerialCOM.Close();
+                    sP_SerialCOM.Close();
                     bW_ReadData.CancelAsync();
                 }
             } catch(Exception err)
@@ -277,6 +277,10 @@ namespace SoundLoc_Win
             {
                 data = sP_SerialCOM.ReadLine();
                 newData = true;
+                richTextBox1.Invoke((MethodInvoker)delegate {
+                    richTextBox1.AppendText(data + "\r\n");
+                    richTextBox1.ScrollToCaret();
+                });
             }           
         }
     }
