@@ -137,8 +137,20 @@ namespace SoundLoc_Win
 
         private void pictureBox1_Paint(object sender, PaintEventArgs e)
         {
-            PictureBox test = sender as PictureBox;
-            Bitmap bitmap = new Bitmap(1050, 1050);
+            // Calculate size of diagram
+            double x_Highest = Math.Max(Microphone_1.d_xCoords, Math.Max(Microphone_2.d_xCoords, Microphone_3.d_xCoords));
+            double x_Lowest = Math.Min(Microphone_1.d_xCoords, Math.Min(Microphone_2.d_xCoords, Microphone_3.d_xCoords));
+            double x_SizeMin = x_Highest - x_Lowest;
+
+            double y_Highest = Math.Max(Microphone_1.d_yCoords, Math.Max(Microphone_2.d_yCoords, Microphone_3.d_yCoords));
+            double y_Lowest = Math.Min(Microphone_1.d_yCoords, Math.Min(Microphone_2.d_yCoords, Microphone_3.d_yCoords));
+            double y_SizeMin = y_Highest - y_Lowest;
+
+            double diagSize = Math.Max(y_SizeMin, x_SizeMin);
+            double diagSizeFactor = diagSize * 10 / 1000;
+
+            PictureBox picture = sender as PictureBox;
+            Bitmap bitmap = new Bitmap(Convert.ToInt32(Math.Round(1050 / diagSizeFactor, 0)), Convert.ToInt32(Math.Round(1050 / diagSizeFactor, 0)));
             Graphics g = Graphics.FromImage(bitmap);
             g.PageUnit = GraphicsUnit.Pixel;
             Pen blackPen = new Pen(Color.Black, 2);
@@ -161,13 +173,13 @@ namespace SoundLoc_Win
             capPath.AddLine(0, 5, 5, 0);
             arrowPen.CustomEndCap = new CustomLineCap(null, capPath);
 
-            g.DrawLine(arrowPen, 25, 25, 25, 1025);
+            g.DrawLine(arrowPen, 25 - (float)x_Lowest, 25, 25 - (float)x_Lowest, 1025);
             g.DrawLine(arrowPen, 25, 25, 1025, 25);
 
-            g.FillEllipse(pointBrush, (float)Microphone_1.d_xCoords * 10 - 6 + 25, (float)Microphone_1.d_yCoords * 10 - 6 + 25, 12, 12);
+            g.FillEllipse(pointBrush, (float)Microphone_1.d_xCoords * 10 / (float)diagSizeFactor - 6 + 25, (float)Microphone_1.d_yCoords * 10 / (float)diagSizeFactor - 6 + 25, 12, 12);
 
-            g.FillEllipse(pointBrush, (float)Microphone_2.d_xCoords * 10 - 6 + 25, (float)Microphone_2.d_yCoords * 10 - 6 + 25, 12, 12);
-            g.FillEllipse(pointBrush, (float)Microphone_3.d_xCoords * 10 - 6 + 25, (float)Microphone_3.d_yCoords * 10 - 6 + 25, 12, 12);
+            g.FillEllipse(pointBrush, (float)Microphone_2.d_xCoords * 10 / (float)diagSizeFactor - 6 + 25, (float)Microphone_2.d_yCoords * 10 / (float)diagSizeFactor - 6 + 25, 12, 12);
+            g.FillEllipse(pointBrush, (float)Microphone_3.d_xCoords * 10 / (float)diagSizeFactor - 6 + 25, (float)Microphone_3.d_yCoords * 10 / (float)diagSizeFactor - 6 + 25, 12, 12);
 
             if(resultPosition.d_xCoords > 0  && resultPosition.d_yCoords > 0)
             {
@@ -179,11 +191,22 @@ namespace SoundLoc_Win
                 bitmap.RotateFlip(RotateFlipType.RotateNoneFlipY);
             }
 
-            g.DrawString("M1", drawFont, drawBrush, (float)Microphone_1.d_xCoords * 10 + 12 + 25, 1025 - ((float)Microphone_1.d_yCoords * 10 + 12 + 25), drawFormat);
-            g.DrawString("M2", drawFont, drawBrush, (float)Microphone_2.d_xCoords * 10 + 12 + 25, 1025 - ((float)Microphone_2.d_yCoords * 10 + 12 + 25), drawFormat);
-            g.DrawString("M3", drawFont, drawBrush, (float)Microphone_3.d_xCoords * 10 + 12 + 25, 1025 - ((float)Microphone_3.d_yCoords * 10 + 12 + 25), drawFormat);
+            g.DrawString("M1", drawFont, drawBrush, (float)Microphone_1.d_xCoords * 10 / (float)diagSizeFactor + 12 + 25, 1050 / (float)diagSizeFactor - (float)Microphone_1.d_yCoords * 10 / (float)diagSizeFactor - 25 - 25 - 12, drawFormat);
+            g.DrawString("M2", drawFont, drawBrush, (float)Microphone_2.d_xCoords * 10 / (float)diagSizeFactor - 12 - 25, 1050 / (float)diagSizeFactor - (float)Microphone_2.d_yCoords * 10 / (float)diagSizeFactor - 25 - 25 - 12, drawFormat);
+            g.DrawString("M3", drawFont, drawBrush, (float)Microphone_3.d_xCoords * 10 / (float)diagSizeFactor + 12 + 25, 1050 / (float)diagSizeFactor - (float)Microphone_3.d_yCoords * 10 / (float)diagSizeFactor - 25, drawFormat);
 
-            e.Graphics.DrawImage(bitmap, 0, 0, test.Size.Width, test.Size.Height);
+            Rectangle section = new Rectangle(new Point(0, bitmap.Height - Convert.ToInt32(Math.Round(bitmap.Height * (float)diagSizeFactor, 0))), new Size(1050, 1050));
+            e.Graphics.DrawImage(CropImage(bitmap, section), 0, 0, picture.Size.Width, picture.Size.Height);
+        }
+
+        public Bitmap CropImage(Bitmap source, Rectangle section)
+        {
+            var bitmap = new Bitmap(section.Width, section.Height);
+            using (var g = Graphics.FromImage(bitmap))
+            {
+                g.DrawImage(source, 0, 0, section, GraphicsUnit.Pixel);
+                return bitmap;
+            }
         }
 
         private void b_Connect_Click(object sender, EventArgs e)
